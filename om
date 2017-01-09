@@ -103,6 +103,48 @@ void morrisTraversalPreorder(struct node* root)
 }
 */
 /*
+#include<iostream>
+using namespace std;
+
+void fun(int &a , int &b)
+{
+	int t;
+	t=a;
+	a=b;
+	b=t;
+}
+int main()
+{
+	int p=10,q=20;
+	cout <<"a = "<<p<<"b ="<<q<<endl;
+	fun(p,q);
+	cout <<"a = "<<p<<"b ="<<q<<endl;
+	return 0;
+}
+
+
+
+
+
+
+void fun(int *a , int *b)
+{
+	int t;
+	t=*a;
+	*a=*b;
+	*b=t;
+}
+int main()
+{
+	int p=10,q=20;
+	cout <<"a = "<<p<<"b ="<<q<<endl;
+	fun(&p,&q);
+	cout <<"a = "<<p<<"b ="<<q<<endl;
+	return 0;
+}
+
+*/
+/*
 void morrisinorder(struct node* root)
 {
     node * current=root;
