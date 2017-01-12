@@ -1789,8 +1789,37 @@ void Graph::isCyclic(int source, int n)
         cout<<"\n---given graph is acyclic.---"<<endl;
 }
 
-void Graph::articulationPoints(int source, int n)
+void Graph::arPoints(int source, int n)
 {
+	stack<node *> st;
+	    for(i=0;i<n;i++)
+            color[i]=WHITE;
+	    color[source]=GRAY;
+	    s.push(source);
+	    while(!s.empty())
+	    {
+	        val=s.top();
+	        temp=a[val];
+	        while(temp!=NULL)
+	        {
+	            if(color[temp->data]==WHITE)
+	            {
+	                color[temp->data]=GRAY;
+                s.push(temp->data);
+                val=temp->data;
+                temp=a[val];
+            }
+            else
+            {
+                temp=temp->next;
+            }
+        }
+        val=s.top();
+        s.pop();
+        cout<<val<<"\t";
+        color[val]=BLACK;
+    }
+	
 
 }
 
@@ -1812,21 +1841,6 @@ int main()
     g.isCyclic(0,n);
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2019,32 +2033,16 @@ int main()
 
 kanades(int *a,int n)
 {
-int cur_sum=0,max_sum=0;
+int cur_sum=max_sum=a[0];
 for(i=0;i<a.length;i++)
 {
 cur_sum+=a[i];
+if(cur_sum<0)
+	cur_sum=0;
 if(cur_sum>max_sum)
 max_sum=cur_sum;
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Returns true if key presents in trie, else false
@@ -2085,7 +2083,9 @@ int main()
     printf("%s --- %s\n", "srihari", output[search(root, "srihari")] );
   
     return 0;
-}namo ganeshaya namaha
+}
+
+namo ganeshaya namaha
 om namo bhagavathe vasudevaya
 om namo narayanaya
 
