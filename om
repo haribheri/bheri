@@ -1789,39 +1789,6 @@ void Graph::isCyclic(int source, int n)
         cout<<"\n---given graph is acyclic.---"<<endl;
 }
 
-void Graph::arPoints(int source, int n)
-{
-	stack<node *> st;
-	    for(i=0;i<n;i++)
-            color[i]=WHITE;
-	    color[source]=GRAY;
-	    s.push(source);
-	    while(!s.empty())
-	    {
-	        val=s.top();
-	        temp=a[val];
-	        while(temp!=NULL)
-	        {
-	            if(color[temp->data]==WHITE)
-	            {
-	                color[temp->data]=GRAY;
-                s.push(temp->data);
-                val=temp->data;
-                temp=a[val];
-            }
-            else
-            {
-                temp=temp->next;
-            }
-        }
-        val=s.top();
-        s.pop();
-        cout<<val<<"\t";
-        color[val]=BLACK;
-    }
-	
-
-}
 
 int main()
 {
@@ -1945,6 +1912,16 @@ void printShortestPath(int parent[], int currentVertex, int startVertex)
         printShortestPath(parent, parent[currentVertex], startVertex);
         printf("%d ", currentVertex);
     }
+}
+void Graph::arPoints(int source, int n)
+{
+	set={};
+	while(edge e(j)))
+	if(intesrsection(disjoint_set1,disjoint_set2))
+	{
+		set.add(disjoint_set1.vertex);
+	}
+	}
 }
 
 int main()
