@@ -1,72 +1,2306 @@
-#include <list>
-#include <iostream>
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+ 
+#define ARRAY_SIZE(a) sizeof(a)/sizeof(a[0])
+ 
+
+#define ALPHABET_SIZE (26)
+ 
+// Converts key current character into index
+// use only 'a' through 'z' and lower case
+#define CHAR_TO_INDEX(c) ((int)c - (int)'a')
+ 
+// trie node
+struct TrieNode
+{
+    struct TrieNode *children[ALPHABET_SIZE];
+ 
+    bool isLeaf;
+};
+ 
+
+struct TrieNode *getNode(void)
+{
+    struct TrieNode *pNode = NULL;
+ 
+    pNode = (struct TrieNode *)malloc(sizeof(struct TrieNode));
+ 
+    if (pNode)
+    {
+        int i;
+ 
+        pNode->isLeaf = false;
+ 
+        for (i = 0; i < ALPHABET_SIZE; i++)
+            pNode->children[i] = NULL;
+    }
+ 
+    return pNode;
+}
+ 
+void insert(struct TrieNode *root, const char *key)
+{
+    int level;
+    int length = strlen(key);
+    int index;
+ 
+    struct TrieNode *pCrawl = root;
+ 
+    for (level = 0; level < length; level++)
+    {
+        index = CHAR_TO_INDEX(key[level]);
+        if (!pCrawl->children[index])
+            pCrawl->children[index] = getNode();
+ 
+        pCrawl = pCrawl->children[index];
+    }
+ 
+
+    pCrawl->isLeaf = true;
+}
+
+typedef stuct node {
+    int data;
+struct node *left,*right;
+}node;
+
+ /*
+void morrisTraversalPreorder(struct node* root)
+{
+    while (root)
+    {
+        // If left child is null, print the current node data. Move to
+        // right child.
+        if (root->left == NULL)
+        {
+            printf( "%d ", root->data );
+            root = root->right;
+        }
+        else
+        {
+            // Find inorder predecessor
+            struct node* current = root->left;
+            while (current->right && current->right != root)
+                current = current->right;
+
+            if (current->right == root)
+            {
+                current->right = NULL;
+                root = root->right;
+            }
+
+          
+            else
+            {
+                printf("%d ", root->data);
+                current->right = root;
+                root = root->left;
+            }
+        }
+    }
+}
+*/
+/*
+#include<iostream>
 using namespace std;
 
-const int SIZE = 10;
+void fun(int &a , int &b)
+{
+	int t;
+	t=a;
+	a=b;
+	b=t;
+}
+int main()
+{
+	int p=10,q=20;
+	cout <<"a = "<<p<<"b ="<<q<<endl;
+	fun(p,q);
+	cout <<"a = "<<p<<"b ="<<q<<endl;
+	return 0;
+}
 
-class Node{
+
+
+
+
+
+void fun(int *a , int *b)
+{
+	int t;
+	t=*a;
+	*a=*b;
+	*b=t;
+}
+int main()
+{
+	int p=10,q=20;
+	cout <<"a = "<<p<<"b ="<<q<<endl;
+	fun(&p,&q);
+	cout <<"a = "<<p<<"b ="<<q<<endl;
+	return 0;
+}
+
+*/
+/*
+void morrisinorder(struct node* root)
+{
+    node * current=root;
+    node * pred;
+    while(current)
+    {
+        if(current->left==NULL)
+        {
+            cout <<"val is "<<current->data<<endl;
+            current=current->right;
+        }
+        else
+        {
+            pred=current->left;
+            while(pred->right!=NULL&&pred->right!=curent)
+            {
+                pred=pred->right;
+            }
+            if(pred->right==NULL)
+            {
+                pred->right=current;
+                current=current->left;
+            }
+            else
+            {
+                pred->right=NULL;
+                cout<<"value is "<<pred->data<<endl;
+            }
+        }
+    }  
+}
+*/
+
+def morrisinorder(root):
+   
+/*
+import module:
+def fun(a):
+    cache=[None] * 100
+    cache[0]=1
+    cache[1]=1
+    cache[2]=2
+    for i in range (a):
+        cache[i]=cache[i-1]+cache[i-2]
+    print "value is ",cache[a-1]
+
+
+fun(85)
+
+
+def kanade():
+   
+    a=[-3,2,-3,4,-1,2]
+    cur_sum=0
+    max_sum=0
+    for i in range(0,6):
+        cur_sum+=a[i]
+        if(cur_sum<0):
+            cur_sum=0
+        if(max_sum<cur_sum):
+            max_sum=cur_sum
+    print "req sum is ",max_sum,"\n"
+
+
+#include<iostream>
+using namespace std;
+
+int &fun()
+{
+   static int x = 10;
+cout <<"\nvalue in fun \t"<<x<<endl;
+
+    return x;
+}
+int main()
+{
+    fun() = 30;
+    cout <<"\nvalue in the main is: \t"<<fun()<<endl;
+    return 0;
+}
+
+kanade()
+
+
+def fun():
+    arr=[][]#4*4
+    temp=[]
+    left=0
+    right=0
+    top=0
+    bottom=0
+    cur_sum=0
+    max_sum=0
+    for cs in range (0,3):
+        for cw in range (0,3):
+            if(cs==cw):
+                temp[cw]=arr[cw][cs]
+            else:
+                for i in range (0,3):
+                    temp[cw]=arr[cs]+arr[cw]
+                Kan_cur_sum=0
+                kan_max_sum=0
+                for i in range(0,6):
+                kan_cur_sum+=temp[i]
+                if(kan_cur_sum<0):
+                    kan_cur_sum=0
+                    if(kan_max_sum<kan_cur_sum):
+                        kan_max_sum=kan_cur_sum
+                    print "req sum is ",kan_max_sum,"\n"
+        cur_sum=kan_max_sum
+        if(cur_sum>max_sum):
+            max_sum=cur_sum
+           
+*/
+/*
+using namespace std;
+int fun(int n)
+{
+    return ((1==n)||(2==n))?1:fun(n-1)+fun(n-2);
+}
+int fun(int n)
+{
+    int cache[100],i;
+    a[0]=1;
+    a[1]=1;
+    a[2]=2;
+    for(i=3;i<n;i++)
+        a[i]=a[i-1]+a[i-2];
+    return a[n-1];
+}
+int main()
+{
+    int val=fun(85);
+    cout <<"value is "<<val<<endl;
+    return 0;
+}
+*/
+
+
+/*
+#include<iostream>
+#include<queue>
+#include<stack>
+#define MAX 10
+#define WHITE 1
+#define GRAY  2
+#define BLACK 3
+using namespace std;
+
+typedef struct node
+{
+    struct node* next;
+    int data;
+}node;
+node *a[MAX];
+int color[MAX];
+class Graph
+{
 public:
-    Node(){}
-    Node(int k, int v):key(k), value(v){}
-    int key, value;
+    void createGraph(int );
+    void add(int );
+    void BFS(int, int);
+    void DFS(int,int);
 };
+void Graph::createGraph(int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+        a[i]=NULL;
+}
+void Graph::add(int n)
+{
+    int i,anode,data,j;
+    node *temp,*last;
+    for(i=0;i<n;i++)
+    {
+    cout<<"how many links to node\t"<<i<<"\t";
+    cin>>anode;
+    for(j=1;j<=anode;j++)
+    {
+        cout<<"enter node value\t"<<j<<"\t";
+        cin>>data;
+        temp=new node;
+    temp->data=data;
+    temp->next=NULL;
+    if(a[i]==NULL)
+    {
+       a[i]=last=temp;
+    }
+    else
+    {
+       last->next=temp;
+       last=temp;
+    }
+    }
+    }
+}
+void Graph::BFS(int start,int n)
+{
+    queue<int> q;
+    node *temp;
+    int i,val1,val2;
+    for(i=0;i<n;i++)
+        color[i]=WHITE;
+    color[start]=GRAY;
+    q.push(start);
+    while(!q.empty())
+    {
+        val1=q.front();
+        temp=a[val1];
+        while(temp)
+        {
+            val2=temp->data;
+            if(color[val2]==WHITE)
+            {
+                q.push(val2);
+                color[val2]=GRAY;
+            }
+            temp=temp->next;
+        }
+        cout<<val1<<"\t";
+        color[val1]=BLACK;
+    q.pop();
+    }
+}
 
-class HashMap {
-private:
-    list<Node*> data[SIZE];
+void Graph::DFS(int start,int n)
+{
+int i,val1,val2;
+node *temp;
+stack<int> s;
+for(i=0;i<n;i++)
+color[i]=WHITE;
 
-public:
-    ~HashMap();
-    Node* get(int key);
-    void put(int key, int value);
+color[start]=GRAY;
+s.push(start);
+while(!s.empty())
+{
+val1=s.top();
+temp=a[val1];
+while(temp)
+{
+val2=temp->data;
+if(color[val2]==WHITE)
+{
+s.push(val2);
+color[val2]=GRAY;
+val1=temp->data;
+temp=a[val1];
+}
+else
+{
+temp=temp->next;
+}
+}
+cout<<val1<<"\t";
+color[val1]=BLACK;
+s.pop();
+}
 
-    int hashFn(int val){ return val % 13; }
-};
+}
+/*
 
-Node* HashMap::get(int key){
-    int hashValue = hashFn(key);
-    int bucket = hashValue % SIZE;
-    list<Node*>::iterator it = data[bucket].begin();
+1.2d array rotation by 90 degree:
+#include<stdio.h>
+int main()
+{
+    int a[][4]={
+                {1,2,3,4},
+                {5,6,7,8},
+                {9,10,11,12},
+                {13,14,15,16}
+               };
+    int i,j,b[4][4];
+for(i=0;i<4;i++)
+        for(j=0;j<4;j++)
+printf("%d\t",a[i][j]);
 
-    while(it != data[bucket].end()){
+    for(i=0;i<4;i++)
+        for(j=0;j<4;j++)
+        b[j][i]=a[3-i][j];
+        printf("-----after-----\n");
+for(i=0;i<4;i++)
+        for(j=0;j<4;j++)
+printf("%d\t",b[i][j]);
 
-        Node ** d = &(*it); 
-        if((*d)->key == key){
-            return *d;
+}
+
+2. Tree image
+void image(tree root)
+{
+tree temp;
+if(root!=NULL)
+{
+image(root->left);
+image(root->right);
+temp=root->left;
+root->left=root->right;
+root->right=temp;
+}
+}
+3. sum of leaves in a binary tree
+int sumofleaves(tree root)
+{
+int sum=0;
+if(root==NULL) return 0;
+else if(root->left==NULL&&root->right==NULL)
+sum=sum+root->data;
+sum=sum+sumofleaves(root->left)+sumofleaves(root->right);
+return sum;
+}
+4.quicksort
+5.check whether a binary tree is binary search tree or not?
+6.search an element in row wise and column wise matrix.
+
+7.Max contiguous sum in array
+
+void fun(int *a,int n)
+{
+int i,sum1=a[0],sum2=a[0];
+for(i=0;i<n;i++)
+{
+sum1=max(a[i],a[i]+sum1);
+sum2=max(sum2,sum1);
+}
+printf("max=%d",sum2);
+}
+int max(int a,int b)
+{
+if(a>b)
+return a;
+else
+return b;
+}
+
+8. kth largest element
+
+void fun(int *a, int n, int k)
+{
+int i,j,t;
+for(i=0;i<k;i++)
+for(j=0;j<n-i;j++)
+{
+if(a[j]>a[j+1])
+{
+t=a[j];
+a[j]=a[j+1];
+a[j+1]=t;
+}
+}
+int x=n-k;
+printf(“kth largest=%d”,a[x]);
+
+}
+time =O(nk);
+or
+we can sort the array using mergesort and then find the the kth largest element in O(nlog
+8. Linked list implementation
+
+public class Bheri
+{
+    Node head;
+        class Node
+        {
+            int data;
+            Node next;
+            Node(int data)
+            {
+                this.data=data;
+                this.next=null;
+            }
+        }
+    public void add_at_end(int data)
+        {
+            Node new_node=new Node(data);
+            new_node.next=null;
+            if(head==null)
+            {
+                head=new_node;
+            }
+            else
+            {
+                Node aux=head;
+                while(aux.next!=null)
+                    aux=aux.next;
+                aux.next=new_node;
+            }
+        }
+    public void display()
+        {
+            Node aux=head;
+            while(aux!=null)
+            {
+                System.out.println(aux.data+" ");
+                aux=aux.next;
+            }
         }
 
-        it++;
-    }
-    return NULL;
+    public static void main(String[] args)
+    {
+        Bheri bheri=new Bheri();
+        int i,n;
+        for(i=1;i<=6;i++)
+        bheri.add_at_end(10*i);
+        bheri.display();
+        Scanner sc=new Scanner(System.in);
+        }
+       }
+
+9. Rotate a list
+
+public void rotate()
+        {
+            Node a,b;
+            int temp;
+            a=head;
+            b=head.next;
+            temp=a.data;
+            while(b!=null)
+            {
+                a.data=b.data;
+                a=a.next;
+                b=b.next;
+            }
+            a.data=temp;
+        }
+
+       
+
+10. Get decimal value of binary list
+
+public void get_Dec_Value()
+        {
+            int length=0,value=0;
+            Node walk=head;
+            while(walk!=null)
+            {
+                length++;
+                walk=walk.next;
+            }
+            length--;
+            walk=head;
+            while(walk!=null)
+            {
+                value+=walk.data*(Math.pow(2, length));
+                length--;
+                walk=walk.next;
+            }
+            System.out.println("decimal value is "+value);
+        }
+
+11. Factorial of number using list
+
+           void factorial(int data)
+        {
+            Node walk,head,temp;
+            int i,carry=0,n;
+            head=new Node(1);
+            head.next=null;
+            for(i=2;i<=data;i++)
+            {
+                walk=head;
+                while(walk!=null)
+                {
+                    n= carry+(walk.data)*i;
+                    if(n>9)
+                    {
+                        if(walk.next==null)
+                        {
+                            walk.data=n%10;
+                            temp=new Node(n/10);
+                            temp.next=null;
+                            walk.next=temp;
+                            carry=0;
+                            walk=walk.next;
+                        }
+                        else
+                        {
+                            walk.data=n%10;
+                            carry=n/10;
+                        }
+                    }
+                    else
+                    {
+                        walk.data=n;
+                        carry=0;
+                    }
+                    walk=walk.next;
+                }
+            }
+         Node x=head;
+         while(x!=null)
+         {
+             System.out.print(x.data+" ");
+             x=x.next;
+         }
+        }
+
+12. Merge 2 sorted lists
+
+Node merge_two_sorted_lists(Node head1, Node head2)
+        {
+            Node head=null,walk=null;
+            if(head1==null)
+              head=head2;
+            else if(head2==null)
+                head=head1;
+            else
+            {
+                while(head1!=null&&head2!=null)
+                {
+                if(head1.data<=head2.data)
+                {
+                    if(head==null)
+                    {
+                        head=head1;
+                        walk=head;
+                    }
+                   
+
+else
+                    {
+                        walk.next=head1;
+                        walk=head1;
+                       }
+                    head1=head1.next;
+                }
+                else
+                {
+                    if(head==null)
+                    {
+                        head=head2;
+                        walk=head;
+                    }
+                    else
+                    {
+                        walk.next=head2;
+                        walk=head2;
+                    }
+                    head2=head2.next;
+                }
+                        if(head1!=null)
+                {
+                    walk.next=head1;
+                }
+                else if(head2!=null)
+                {
+                    walk.next=head2;
+                }
+            }
+            }
+            return head;
+        }
+
+13. Zigzag arrangement of an array
+
+void zigzag(int *a)
+{
+int flag=1;
+for(i=0;i<n;i++)
+{
+if(flag) //for <
+{
+if(a[i]>a[i+1])
+swap(a[i],a[i+1]);
+}
+else     //for >
+{
+if(a[i]<a[i+1)
+swap(a[i],a[i+1]);
+}
+flag=!flag;
+}
+}  
+
+14. Zigzag arrangement of list
+
+public void zigzag()
+        {
+            boolean flag=true;
+            int temp;
+            Node t1=head,t2=head.next;
+            while(t2!=null)
+            {
+                if(flag)  //for  <
+                {
+                    if(t1.data>t2.data)
+                    {
+                        temp=t1.data;
+                        t1.data=t2.data;
+                        t2.data=temp;
+                    }
+                }
+                else  // for >
+                {
+                    if(t1.data<t2.data)
+                    {
+                        temp=t1.data;
+                        t1.data=t2.data;
+                        t2.data=temp;
+                    }
+                }
+                t1=t1.next;
+                t2=t2.next;
+                flag=!flag;
+            }             
+        }
+
+15. Tree implementation
+
+#include<iostream>
+using namespace std;
+
+typedef struct node
+{
+int data;
+struct node *left,*right
+}node;
+node *root=null;
+class Tree
+{
+public:
+void add(node *, int);
+void inorder(node *);
+void spiralorder(node *);
+void sum_of_left_leaves(node *);
+};
+void tree::add(node *root, int data)
+{
+if(root==null)
+{
+root=new node;
+root->data=data;
+root->left=root->right=null;
+}
+else
+{
+if(data<root->data)
+add(&(root->left),data);
+else
+add(&(root->right),data);
+}
+}
+void tree::delete(node *root, int data)
+{
+}
+void tree::inorder(node *root)
+{
+if(root!=null)
+{
+inorder(&(root->left));
+cout<<root->data<<"\t";
+inorder(&(root->right));
+}
+}
+void tree::spiralorder(node *root)
+{
+}
+void tree::sum_of_left_leaves(node *left)
+{
+}
+int main()
+{
+int n,i,data;
+cout<<"enter how many nodes "<<"\t";
+cin>>n;
+for(i=1;i<=n;i++)
+{
+cout<<"enter node "<<i<<"\t";
+cin>>data;
+bst.add(&root,data);
+}
+Tree bst;
+bst.inorder(&root);
+return 0;
 }
 
-void HashMap::put(int key, int value){
-    int hashValue = hashFn(key);
-    int bucket = hashValue % SIZE;
-    Node* node = this->get(key);
-    if(node == NULL){
-        data[bucket].push_front(new Node(key, value));
+
+Tree implementation in java
+
+package tree;
+import java.util.*;
+
+public class Tree
+{
+    class Node
+    {
+        int data,flag;
+        Node left,right;
+        Node(int data)
+        {
+            this.data=data;
+            this.flag=0;
+            this.left=this.right=null;
+        }
     }
-    else{
-        node->value = value;
+    Node root;
+    Tree()
+    {
+        root=null;
+    }
+    void insert(int data)
+    {
+        root=push(root,data);
+    }
+    Node push(Node root, int data)
+    {       
+        if(root==null)
+        {
+            root=new Node(data);
+            root.data=data;
+            root.left=root.right=null;
+        }
+        else if(data<root.data)
+            root.left=push(root.left,data);
+        else
+            root.right=push(root.right, data);
+        return root;
+    }
+    void inorder()
+    {
+        display(root);
+    }
+    void display(Node root)
+    {
+        if(root!=null)
+        {
+            display(root.left);
+            System.out.println(root.data+" ");
+            display(root.right);
+        }
+    }
+    void depthoftree()
+    {
+        int depth=findDepth(root);
+        System.out.println("Depth of tree is "+depth);
+    }
+    int findDepth(Node root)
+    {
+        int value=0;
+        if(root==null)
+            return 0;
+        else
+        {
+            value=1+max(findDepth(root.left),findDepth(root.right));
+        }
+        return value;
+    }
+    int max(int a, int b)
+    {
+        if(a>b)
+            return a;
+        else
+            return b;
+    }
+    public static void main(String[] args)
+    {
+     Tree tree=new Tree();
+     int n, data,i;
+     Scanner sc=new Scanner(System.in);
+     System.out.print("how many nodes\t");
+     n=sc.nextInt();
+     System.out.println("\n---enter nodes---");
+     for(i=1;i<=n;i++)
+     {
+         System.out.print("enter node "+i+"\t");
+         data=sc.nextInt();
+         tree.insert(data);
+     }
+     tree.inorder();
+     tree.depthoftree();
+    }
+   
+}
+#define MAX 100;
+#define undif -1;
+typedef struct node
+{
+int data;
+struct node * next;
+}node;
+class ArcPts
+{
+public:
+node *arr[MAX];
+void add();
+void arpts();
+void dis(); 
+};
+void Graph::add()
+{
+int dat,i=0;
+int arpts[MAX];
+node * temp1,*temp2,*arpts;
+cin>>n;
+while(i<n)
+{
+temp1=arr[i];
+while(temp1)
+temp1=temp1->next;
+temp2=arr[temp1->data];
+if(temp2)
+{
+arpts[i]=temp2->data;
+}
+else
+{
+arpts[i]=undif;
+}
+}
+for(i=0;i<MAX;i++)
+{
+if(arpts[i]==undif)
+{
+continue;
+}
+else
+{
+cout <<"arpts -> "<<i+1<<arpts[i]<<endl;
+}
+}
+}
+void Graph::arpts()
+{
+node * temp;
+}
+void Graph::arPoints(int source, int n)
+{
+	set={};
+	while(edge e(j)))
+	if(intesrsection(disjoint_set1,disjoint_set2))
+	{
+		set.add(disjoint_set1.vertex);
+	}
+	}
+}
+
+
+
+
+
+AVL TREE
+
+package tree;
+
+import java.util.*;
+public class AVLtree
+{
+    class Node
+    {
+        int data,bf;
+        Node left,right;
+    Node(int data, int bf)
+    {
+        this.data=data;
+        this.bf=bf;
+        this.left=this.right=null;
+    }
+    }
+    Node root;
+    AVLtree()
+    {       
+        root=null;
+    }
+    void insert(int data)
+    {
+       
+    }
+    void push(Node root, int data)
+    {
+       
+    }
+    void leftRotate()
+    {
+       
+    }
+    void rightRotate()
+    {
+       
     }
 }
 
-HashMap::~HashMap(){
-    for(int i = 0; i < SIZE; ++i){
-        list<Node*>& val = data[i];
-        for(list<Node*>::iterator it = val.begin(); it != val.end(); it++){
-            Node* n = *it;
-            delete n;
+
+
+
+
+
+
+
+
+
+
+
+Tries
+
+import java.util.*;
+
+public class Trie
+{
+    class Node
+    {
+        Map<Character,Node> children;
+               
+        boolean endOfWord;
+        public Node()
+        {
+            children = new HashMap<>();
+            endOfWord = false;
+        }
+    }
+    private final Node root;
+   
+    public Trie()
+    {
+        root = new Node();
+    }
+
+   
+    /* Iterative implementation of insert into trie */
+    public void insert(String word)
+    {
+        Node current = root;
+        for (int i = 0; i < word.length(); i++)
+        {
+            char ch = word.charAt(i);
+            Node node = current.children.get(ch);
+            if (node == null)
+            {
+                node = new Node();
+                current.children.put(ch, node);
+            }
+            current = node;
+        }
+        //mark the current nodes endOfWord as true
+        current.endOfWord = true;
+    }
+
+   
+     /* Recursive implementation of insert into trie*/
+    public void insertRecursive(String word)
+    {
+        insertRecursive(root, word, 0);
+    }
+
+
+    private void insertRecursive(Node current, String word, int index)
+    {
+        if (index == word.length())
+        {
+            //if end of word is reached then mark endOfWord as true on current node
+            current.endOfWord = true;
+            return;
+        }
+        char ch = word.charAt(index);
+        Node node = current.children.get(ch);
+
+        //if node does not exists in map then create one and put it into map
+        if (node == null)
+        {
+            node = new Node();
+            current.children.put(ch, node);
+        }
+        insertRecursive(node, word, index + 1);
+    }
+
+   
+     /* Iterative implementation of search into trie.*/
+    public boolean search(String word) {
+        Node current = root;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            Node node = current.children.get(ch);
+            //if node does not exist for given char then return false
+            if (node == null) {
+                return false;
+            }
+            current = node;
+        }
+        //return true of current's endOfWord is true else return false.
+        return current.endOfWord;
+    }
+
+   
+     /* Recursive implementation of search into trie */
+    public boolean searchRecursive(String word)
+    {
+        return searchRecursive(root, word, 0);
+    }
+    private boolean searchRecursive(Node current, String word, int index)
+    {
+        if (index == word.length())
+        {
+            //return true of current's endOfWord is true else return false.
+            return current.endOfWord;
+        }
+        char ch = word.charAt(index);
+        Node node = current.children.get(ch);
+        //if node does not exist for given char then return false
+        if (node == null)
+        {
+            return false;
+        }
+        return searchRecursive(node, word, index + 1);
+    }
+
+    /* Delete word from trie. */
+    public void delete(String word)
+    {
+        delete(root, word, 0);
+    }
+
+    /* Returns true if parent should delete the mapping*/
+    private boolean delete(Node current, String word, int index)
+    {
+        if (index == word.length())
+        {
+            //when end of word is reached only delete if currrent.endOfWord is true.
+            if (!current.endOfWord)
+            {
+                return false;
+            }
+            current.endOfWord = false;
+            //if current has no other mapping then return true
+            return current.children.size() == 0;
+        }
+        char ch = word.charAt(index);
+        Node node = current.children.get(ch);
+        if (node == null)
+        {
+            return false;
+        }
+        boolean shouldDeleteCurrentNode = delete(node, word, index + 1);
+
+        //if true is returned then delete the mapping of character and trienode reference from map.
+        if (shouldDeleteCurrentNode)
+        {
+            current.children.remove(ch);
+            //return true if no mappings are left in the map.
+            return current.children.size() == 0;
+        }
+        return false;
+    }
+    public static void main(String[] args)
+    {
+    }
+}
+
+
+*
+
+
+
+
+
+
+
+int main()
+{
+    int n,i;
+    cout<<"how many nodes in the graph ? ";
+    cin>>n;
+    Graph g;
+    g.createGraph(n);
+    g.add(n);
+    cout<<"---bfs traversal---"<<endl;
+    //g.BFS(0,n);
+    cout<<"\n---dfs traversal---"<<endl;
+    g.DFS(0,n);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Class  Node
+{
+Int data,value;
+Node left, right;
+}
+
+Diameter(Node root)
+{
+Stack<int> s;
+Node new_node=findHighDiamater(root);
+while(new_node)
+{
+s.push(new_node.data);
+new_node=new_node.left;
+}
+while(!s.empty())
+{
+s.O.P(s.top());
+s.pop();
+}
+new_node=root.right;
+while(new_node)
+{
+s.push(new_node.data);
+new_node=new_node.right;
+}
+while(!s.empty())
+{
+s.O.P(s.top());
+s.pop();
+}
+}
+Node findHighDiamater(Node root)
+{
+int max=0;
+while()
+}
+
+
+
+
+
+
+int Height_with_out_rec(Node root)
+{
+Queue<int> q;
+q.push(root.data);
+int count=0;
+while(!q.empty())
+{
+count=q.size();
+height++;
+if(count==0)
+{
+System.out.println(height);
+break;
+}
+else
+{
+while(count!=0)
+{
+Node temp=q.front();
+q.push(temp.left);
+q.push(temp.right);
+}
+}
+}
+}
+
+
+Void Disply_with_stack(Node root)
+{
+Stack<Node> s;
+Node temp;
+while(root)
+{
+s.push(root);
+root=root.left;
+}
+while(!s.empty())
+{
+temp=s.pop();
+S.O.P(temp.data);
+while(temp)
+}
+}
+
+
+
+
+*/
+
+/*
+package tree;
+import java.io.*;
+import java.util.*;
+
+public class Tree
+{   
+    class Node
+    {
+        int data;
+        Node left;
+        Node right;
+        Node(int data)
+        {
+            this.data=data;
+            this.left=this.right=null;
+        }
+    }
+    Node root;
+    Tree()
+    {
+        root=null;
+    }
+   
+    void insert(int data)
+    {
+        root=add(root,data);
+    }
+   
+    Node add(Node root, int data)
+    {
+        if(root==null)
+        {
+            root=new Node(data);
+            root.left=root.right=null;
+            return root;
+        }
+        else if(data<root.data)
+            root.left=add(root.left, data);
+        else
+            root.right=add(root.right, data);          
+     return root;
+    }
+    void height()
+    {
+        heightVlaue(root);
+    }
+    void heightVlaue(Node root)
+    {
+        Queue q=new LinkedList();
+        int count=0,height=0;
+        q.add(root);
+        Node temp;
+        while(!q.isEmpty())
+        {
+            count=q.size();
+            height++;
+            if(count==0)
+            {
+                break;
+            }
+            else
+            {
+                while(count!=0)
+                {
+                    temp=(Node)q.remove();
+                    if(temp.left!=null)
+                    {
+                        q.add(temp.left);
+                    }
+                    if(temp.right!=null)
+                    {
+                        q.add(temp.right);
+                    }
+                    count--;   
+                }
+            }
+        }
+        System.out.println("height of tree is:  "+height);
+    }
+    void delete(int data)
+    {
+        root=del(root,data);
+    }
+    Node del(Node root, int data)
+    {
+        if(root==null)
+        {
+            return root;
+        }
+        else if(data<root.data)
+            root.left=del(root.left,data);
+        else if(data>root.data)
+            root.right=del(root.right, data);
+        else
+        {
+            if(root.left==null&&root.right==null)
+            {
+                root=null;
+                return root;
+            }
+            else if(root.left==null&&root.right!=null)
+            {
+                root=root.right;
+                return root;
+            }
+            else if(root.left!=null&&root.right==null)
+            {
+                root=root.left;
+                return root;
+            }
+            else
+            {
+                Node temp=findMin(root.right);
+                root.data=temp.data;
+                root.right=del(root.right,temp.data);
+            }
+        }
+        return root;
+    }
+   
+    Node findMin(Node root)
+    {
+        Node temp=root;
+        while(root.left!=null)
+        {
+            root=root.left;
+        }
+        return temp;
+    }
+   
+    void display()
+    {
+        inorder(root);
+    }
+   
+    void inorder(Node root)
+    {
+        if(root!=null)
+        {
+            inorder(root.left);
+            System.out.println(root.data+"\t");
+            inorder(root.right);
+        }
+    }
+   
+    public static void main(String[] args)
+    {
+        Tree tree=new Tree();
+        int i,n,data;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter number of nodes");
+        n=sc.nextInt();
+        for(i=1;i<=n;i++)
+        {
+            System.out.println("enter node "+i+" data\t");
+            data=sc.nextInt();
+            tree.insert(data);
+        }
+        System.out.println("\n---tree data---\n");
+        tree.display();
+       // System.out.println("enter the data to delete");
+        //int x=sc.nextInt();
+        //tree.delete(x);
+        //System.out.println("after deletion of 3");
+        //tree.display();
+        System.out.println("\n---hieght oof the tree is---\n");
+        try
+        {
+        tree.height();
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+package avltree;
+
+public class AVLTree
+{
+    class Node
+    {
+        int data,height;
+        Node left,right;
+        Node(int data)
+        {
+            this.data=data;
+            this.left=this.right=null;
+            this.height=0;
+        }
+    }
+   
+    Node root;
+   
+    AVLTree()
+    {
+        root=null;
+    }
+   
+    int getHeight(Node root)
+    {
+        int value=0;
+        if(root==null)
+            value=0;
+        else
+        {
+            value=1+max(getHeight(root.left),getHeight(root.right));
+        }
+        return value;
+    }
+    int max(int a ,int b)
+    {
+        if(a>b)
+            return a;
+        else
+            return b;
+    }
+    void insert( int data)
+    {
+        root=add(root,data);
+    }
+   
+    Node add(Node root, int data)
+    {
+        if(root==null)
+        {
+            root=new Node(data);
+            root.data=data;
+            //root.height=1;
+            root.left=root.right=null;
+        }
+        else if(data<root.data)
+            add(root.left,data);
+        else
+            add(root.right,data);
+        int balance=getHeight(root.left)-getHeight(root.right);
+        if(balance>1)
+        {
+            if(getHeight(root.left)>getHeight(root.right))
+            {
+                root=rightRotate(root);
+            }
+            else
+            {
+                root.left=leftRotate(root);
+                root=rightRotate(root);
+            }
+        }
+        else if(balance<-1)
+        {
+            if(getHeight(root.right)>getHeight(root.left))
+            {
+                leftRotate(root);
+            }
+            else
+            {
+                rightRotate(root);
+                leftRotate(root);
+            }
+        }
+        root.height=1+max(getHeight(root.left), getHeight(root.right));
+    return root;
+    }
+   
+    Node leftRotate(Node root)
+    {
+        Node x;
+        x=root.right;
+        root.right=x.left;
+        x.left=root;
+        root=x;
+        return root;
+    }
+   
+    Node rightRotate(Node root)
+    {
+        Node x;
+        x=root.left;
+        root.left=x.right;
+        x.right=root;
+        root=x;
+        return root;
+    }
+
+    public static void main(String[] args)
+    {
+        // TODO code application logic here
+    }
+}
+
+
+
+
+
+
+
+
+
+#include<iostream>
+#include<queue>
+#include<stack>
+#define MAX 10
+#define WHITE 1
+#define GRAY  2
+#define BLACK 3
+using namespace std;
+
+typedef struct node
+{
+    struct node* next;
+    int data;
+}node;
+
+node *a[MAX];  //array of pointers of type node;
+int color[MAX];
+
+class Graph
+{
+public:
+    void createGraph(int );
+    void add(int n);
+    void BFS(int, int);
+    void DFS_with_out_rec(int,int);
+    void DFS_with_rec(int,int);
+    void DFS_VISIT(int);
+    void isCyclic(int , int);
+    void articulationPoints(int, int);
+};
+
+void Graph::createGraph(int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+        a[i]=NULL;
+}
+void Graph::add(int n)
+{
+    int i,j,adjacent,data;
+    node *temp, *last;
+    for(i=0;i<n;i++)
+    {
+        cout<<"enter how many adjacent nodes for node "<<i<<"\t";
+        cin>>adjacent;
+        for(j=1;j<=adjacent;j++)
+        {
+            cout<<"\n enter node data "<<j<<"\t";
+            cin>>data;
+            temp=new node;
+            temp->data=data;
+            temp->next=NULL;
+            if(a[i]==NULL)
+                a[i]=last=temp;
+            else
+            {
+                last->next=temp;
+                last=temp;
+            }
         }
     }
 }
 
-int main(){
-    HashMap map;
-    cout << "Finding 5: " << map.get(5) << endl;  // -1
-    map.put(5, 10);
-    map.put(5, 11);
-    cout << "Finding 5: " << map.get(5)->value;  // 11
-    return 1;
+void Graph::BFS(int source, int n)
+{
+    int i,t1,t2;
+    for(i=0;i<n;i++)
+        color[i]=WHITE;
+    queue<int> q;
+    node *temp;
+    q.push(source);
+    color[source]=GRAY;
+    while(!q.empty())
+    {
+        t1=q.front();
+        temp=a[t1];
+        while(temp)
+        {
+            t2=temp->data;
+            if(color[t2]==WHITE)
+            {
+                color[t2]=GRAY;
+                q.push(t2);
+            }
+            temp=temp->next;
+        }
+        cout<<t1<<"\t";
+        color[t1]=BLACK;
+        q.pop();
+    }
 }
+
+void Graph::DFS_with_out_rec(int source, int n)
+{
+    node *temp;
+    stack<int > s;
+    int i,val;
+    for(i=0;i<n;i++)
+            color[i]=WHITE;
+    color[source]=GRAY;
+    s.push(source);
+    while(!s.empty())
+    {
+        val=s.top();
+        temp=a[val];
+        while(temp!=NULL)
+        {
+            if(color[temp->data]==WHITE)
+            {
+                color[temp->data]=GRAY;
+                s.push(temp->data);
+                val=temp->data;
+                temp=a[val];
+            }
+            else
+            {
+                temp=temp->next;
+            }
+        }
+        val=s.top();
+        s.pop();
+        cout<<val<<"\t";
+        color[val]=BLACK;
+    }
+}
+
+void Graph::DFS_with_rec(int source, int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+        color[i]=WHITE;
+    for(i=0;i<n;i++)
+        if(color[i]==WHITE)
+        DFS_VISIT(i);
+}
+
+void Graph::DFS_VISIT(int source)
+{
+    int data;
+    node *temp;
+    color[source]=GRAY;
+    temp=a[source];
+    while(temp!=NULL)
+    {
+        data=temp->data;
+        if(color[data]==WHITE)
+        {
+            DFS_VISIT(data);
+        }
+        else
+            {
+                temp=temp->next;
+            }
+    }
+    color[source]=BLACK;
+    cout<<source<<"\t";
+}
+
+void Graph::isCyclic(int source, int n)
+{
+    int flag=0,i,val, parent[n];
+    stack<int >s;
+    node *temp;
+    for(i=0;i<n;i++)
+            color[i]=WHITE;
+    for(i=0;i<n;i++)
+        parent[i]=0;
+    color[source]=GRAY;
+    parent[source]=MAX;
+    s.push(source);
+    while(!s.empty())
+    {
+        val=s.top();
+        temp=a[val];
+        while(temp)
+        {
+            if(color[temp->data]==WHITE)
+            {
+                color[temp->data]=GRAY;
+                parent[temp->data]=val;
+                s.push(temp->data);
+                val=temp->data;
+                temp=a[val];
+            }
+            else
+            {
+                if((parent[val]==temp->data)||(parent[val]==MAX)||color[temp->data]==BLACK)
+                {
+                    temp=temp->next;
+                }
+                else
+                {
+                    flag=1;
+                    break;
+                }
+            }
+        }
+        val=s.top();
+        s.pop();
+        color[val]=BLACK;
+    }
+    if(flag)
+        cout<<"\n---given graph is cyclic.---"<<endl;
+    else
+        cout<<"\n---given graph is acyclic.---"<<endl;
+}
+
+
+int main()
+{
+    int n,i;
+    cout<<"how many nodes in the graph ? ";
+    cin>>n;
+    Graph g;
+    g.createGraph(n);
+    g.add(n);
+    cout<<"\n---BFS traversal is---\n";
+    g.BFS(0,n);
+    cout<<"\n---DFS traversal with out recursion is---\n";
+    g.DFS_with_out_rec(0,n);
+    cout<<"\n---DFS traversal with recursion is---\n";
+    g.DFS_with_rec(0,n);
+    cout<<"\n---checking whether cyclic or not ----\n";
+    g.isCyclic(0,n);
+    return 0;
+}
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int val;
+    struct Node * next;
+};
+
+// Adds a new edge, u --> v, to adjacencyList[u]
+struct Node * add(struct Node * head, int vertex)
+{
+    struct Node * traverse = (struct Node *) malloc(sizeof(struct Node));
+
+    traverse->val = vertex;
+    traverse->next = head;
+
+    return traverse;
+}
+
+// The Breadth First Search Algorithm procedure. Takes empty parent and level
+// arrays and fills them with corresponding values that we get while applying BFS
+void breadthFirstSearch(struct Node * adjList[], int vertices, int parent[], int level[])
+{
+    struct Node * temp;
+    int i, par, lev, flag = 1;
+
+    lev = 0;
+    level[1] = lev;
+
+    while (flag) {
+        flag = 0;
+        for (i = 1; i <= vertices; ++i) { if (level[i] == lev) { flag = 1; temp = adjList[i]; par = i; // Exploring all the adjacent vertices while (temp != NULL) { if (parent[temp->val] != 0) {
+                        // A level for this is already set
+                        temp = temp->next;
+                        continue;
+                    }
+
+                    level[temp->val] = lev + 1;
+                    parent[temp->val] = par;
+                    temp = temp->next;
+                }
+            }
+        }
+
+        ++lev;
+    }
+}
+
+// Replaces the value of an edge (u -->) v to (u --> v')
+// Traverses the entire list of adjacencyList[u] => O(|E|) operation
+// Here, "v" is stored as "oldVertex" and "v'" is stored as "newVertex"
+void replace(struct Node * head, int oldVertex, int newVertex)
+{
+    struct Node * traverse = head;
+
+    // Search for the occurence of 'oldVertex'
+    while (traverse->next != NULL) {
+        if (traverse->val == oldVertex) {
+            break;
+        }
+
+        traverse = traverse->next;
+    }
+
+    // replace it with the new value
+    traverse->val = newVertex;
+}
+
+// Prints the Adjacency List from vertex 1 to |V|
+void printAdjacencyList(struct Node * adjList[], int vertices)
+{
+    int i;
+
+    // Printing Adjacency List
+    printf("\nAdjacency List -\n");
+    for (i = 1; i <= vertices; ++i) { printf("%d -> ", i);
+
+        struct Node * temp = adjList[i];
+
+        while (temp != NULL) {
+            printf("%d -> ", temp->val);
+            temp = temp->next;
+        }
+
+        printf("NULL\n");
+    }
+}
+
+// A recursive procedure to print the shortest path. Recursively
+// looks at the parent of a vertex till the 'startVertex' is reached
+void printShortestPath(int parent[], int currentVertex, int startVertex)
+{
+    if (currentVertex == startVertex) {
+        printf("%d ", currentVertex);
+    } else if (parent[currentVertex] == 0) {
+        printShortestPath(parent, startVertex, startVertex);
+        printf("%d ", currentVertex);
+    } else {
+        printShortestPath(parent, parent[currentVertex], startVertex);
+        printf("%d ", currentVertex);
+    }
+}
+
+int main()
+{
+    int vertices, edges, i, j, v1, v2;
+
+    vertices = 100;     // For a 10X10 board
+
+    // We will make the Adjacency List's size
+    // (|V| + 1) so that we can use it 1-indexed
+    struct Node * adjList[vertices + 1];
+
+    int parent[vertices + 1];   // Just like 'adjList' -> Size = |V| + 1
+    int level[vertices + 1];    // Just like 'adjList' -> Size = |V| + 1
+
+    for (i = 0; i <= vertices; ++i) {
+        // Initialising our arrays
+        adjList[i] = NULL;
+        parent[i] = 0;
+        level[i] = -1;
+    }
+
+    // Initially we will add edges (a move) from
+    // one location to another location as if
+    // there were no snakes or ladders at all
+    for (i = 1; i <= vertices; ++i) {
+
+        // From vertex 'i', add a path to
+        // the next 6 locations possible
+        for (j = 1; j <= 6 && j + i <= vertices; ++j) { adjList[i] = add(adjList[i], i + j); ++edges; } } int ladderCount, snakeCount; printf("Enter the Number of Ladders - "); scanf("%d", &ladderCount); printf("Enter the Ladder Edges -\n"); // Dealing with Ladder Edges (v1 ---> v2)
+    for (i = 0; i < ladderCount; ++i) {
+        scanf("%d%d", &v1, &v2);
+
+        // If the ladder can affect any position, it is
+        // the previously 6 possible moves of v1
+        j = v1 - 6;
+
+        if (j < 1) {
+            j = 1;
+        }
+
+        // So we make a correction in those vertices
+        for (; j < v1; ++j) {
+            // Replacing Vertex v1 by v2
+            replace(adjList[j], v1, v2);
+        }
+    }
+
+    printf("Enter the Number of Snakes - ");
+    scanf("%d", &snakeCount);
+
+    printf("Enter the Snake Edges -\n");
+    // Dealing with Snakes Edges
+    for (i = 0; i < snakeCount; ++i) {
+        scanf("%d%d", &v1, &v2);
+
+        // If the snake can affect any position, it is
+        // the previously 6 possible moves of v1
+        j = v1 - 6;
+
+        if (j < 1) {
+            j = 1;
+        }
+
+        // So we make a correction in those vertices
+        for (; j < v1; ++j) {
+            // Replacing Vertex v1 by v2
+            replace(adjList[j], v1, v2);
+        }
+    }
+
+    printAdjacencyList(adjList, vertices);
+    breadthFirstSearch(adjList, vertices, parent, level);
+    printf("\nNumber of Moves required = %d\n", level[vertices]);
+
+    if (level[vertices] != -1) {
+        // Printing the shortest path from vertex 1
+        // to the last vertex 100 (vertices)
+        printShortestPath(parent, vertices, 1);
+    }
+
+    return 0;
+}
+
+*/
+
+kanades(int *a,int n)
+{
+int cur_sum=max_sum=a[0];
+for(i=0;i<a.length;i++)
+{
+cur_sum+=a[i];
+if(cur_sum<0)
+	cur_sum=0;
+if(cur_sum>max_sum)
+max_sum=cur_sum;
+}
+}
+
+
+// Returns true if key presents in trie, else false
+bool search(struct TrieNode *root, const char *key)
+{
+    int level;
+    int length = strlen(key);
+    int index;
+    struct TrieNode *pCrawl = root;
+ 
+    for (level = 0; level < length; level++)
+    {
+        index = CHAR_TO_INDEX(key[level]);
+ 
+        if (!pCrawl->children[index])
+            return false;
+ 
+        pCrawl = pCrawl->children[index];
+    }
+ 
+    return (pCrawl != NULL && pCrawl->isLeaf);
+}
+ 
+
+int main()
+{
+
+    char keys[][8] = {"bheri", "srihari"};
+    char output[][32] = {"Not present in trie", "Present in trie"};
+ 
+    struct TrieNode *root = getNode();
+
+    int i;
+    for (i = 0; i < ARRAY_SIZE(keys); i++)
+        insert(root, keys[i]);
+
+    printf("%s --- %s\n", "bheri", output[search(root, "bheri")] );
+    printf("%s --- %s\n", "srihari", output[search(root, "srihari")] );
+  
+    return 0;
+}
+
+namo ganeshaya namaha
+om namo bhagavathe vasudevaya
+om namo narayanaya
+
+
+
+
+*/
+
+#include<iostream>
+using namespace std;
+typedef struct node
+{
+int data;
+struct node* next;
+}node;
+class Linklist
+{
+public:
+node * create(node *);
+void print(node *);
+node* reverse(node *);
+node *clist(node *);
+node * mid(node *);
+int palin(node *);
+};
+node * Linklist::create(node * lst)
+{
+int n,dat,i=0;
+node *temp;
+cout<<"enter number of nodes in the list \n";
+cin>>n;
+while(i<n)
+{
+cout<<"enter data item "<<i+1<<"\t";
+cin>>dat;
+temp=new node;
+temp->data=dat;
+temp->next=lst;
+lst=temp;
+i++;
+cout<<endl;
+}
+return lst;
+}
+node* Linklist::reverse(node * lst)
+{
+node * cur,*prev,*nxt;
+prev=NULL;
+cur=lst;
+while(cur)
+{
+nxt=cur->next;
+cur->next=prev;
+prev=cur;
+cur=nxt;
+}
+return prev;
+}
+void Linklist::print(node * lst)
+{
+while(lst)
+{
+cout<<lst->data<<"\t";
+lst=lst->next;
+}
+}
+
+int Linklist::palin(node * lst)
+{
+node *md,*st1,*st12,*st2,*prev,*cur,*nxt;
+int flag=1;
+md=mid(lst);
+st12=md->next;
+md->next=NULL;
+st1=lst;
+//st2=reverse(st12);
+st2=NULL;
+prev=NULL;
+cur=st12;
+while(cur)
+{
+nxt=cur->next;
+cur->next=prev;
+prev=cur;
+cur=nxt;
+
+}
+st2=prev;
+st1=lst;
+
+cout<<"list 1 is...."<<endl;
+print(st1);
+cout<<"list 2 is...."<<endl;
+print(st12);
+
+while(st1&&st2)
+{
+if(st1->data!=st2->data)
+{
+flag=0;
+break;
+}
+st1=st1->next;
+st2=st2->next;
+}
+
+return flag;
+}
+
+node * Linklist::clist(node * lst)
+{
+node *temp,*tail;
+tail=lst;
+int n,i=0,dat;
+cout<<"enter n ";
+cin>>n;
+while(i<n)
+{
+    i++;
+    cout<<"enter data \t";
+    cin>>dat;
+    temp=new node;
+    temp->data=dat;
+    temp->next=NULL;
+    if(lst==NULL)
+    {
+        lst=tail=temp;
+    }
+    else
+    {
+//lst->next=temp;
+    tail->next=temp;
+    tail=temp;
+    }
+}
+//cout<<"hello...\n";
+//cout<<"tail data is "<<tail->data<<"list data is "<<lst->data<<endl;
+tail->next=lst;
+return lst;
+}
+
+
+
+
+node * Linklist::mid(node * lst)
+{
+int val;
+node * slow,*fast;
+slow=lst;
+fast=lst->next;
+while(fast)
+{
+slow=slow->next;
+fast=fast->next->next;
+}
+return slow;
+}
+int main()
+{
+node * lst=NULL;
+//node * clst=NULL;
+Linklist obj;
+lst=obj.create(lst);
+//cout<<"before reverse"<<endl;
+obj.print(lst);
+//rlst=obj.reverse(lst);
+//cout<<"after reverse"<<endl;
+//obj.print(rlst);
+//int mid_node=obj.mid(lst);
+//cout<<"mid node of list is "<<mid_node<<endl;
+//clst=obj.clist(clst);
+//obj.print(clst);
+int isPal=obj.palin(lst);
+if(isPal)
+{
+cout<<"list is palindrome "<<endl;
+}
+else
+{
+cout<<"list is not palindrome "<<endl;
+}
+return 0;
+}
+
+
