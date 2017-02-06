@@ -1,0 +1,47 @@
+create or replace package bheri
+as
+function addi(i number , j number) return number;
+proecdure addi(a in number, b in number, c out number) ;
+end bheri;
+
+create or replace package body bheri
+as 
+function addi(i number, j number) return number 
+is
+--declare
+x number:=10;
+y number:=20;
+z number;
+begin
+z:=x+y+i+j;
+return z;
+end addi;
+
+procedure mul(a in number, b in number, c out number) is
+begin
+c:=a*b;
+end mul;
+
+end bheri;
+
+procedure execution:
+
+declare
+c number;
+begin
+bheri.mul(10,20,c);
+dbms_output.put_line('value of c is '||c);
+end;
+
+Function execution:
+
+
+1.select bheri.addi(10,20) from dual;
+
+2.
+declare
+res number;
+begin
+select bheri.addi(10,20) into res from dual ;
+dbms_output.put_line('result is '||res);
+end;
