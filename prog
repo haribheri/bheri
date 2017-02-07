@@ -196,7 +196,7 @@ def fun(a):
 fun(85)
 
 
-def kanade():
+def kenade():
    
     a=[-3,2,-3,4,-1,2]
     cur_sum=0
@@ -273,9 +273,7 @@ else
 }
 }
 
-kanade()
-
-
+kenade()
 def fun():
     arr=[][]#4*4
     temp=[]
