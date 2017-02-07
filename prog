@@ -227,6 +227,52 @@ int main()
     return 0;
 }
 
+
+Hor_symm(int a[m][n])
+{
+int hor_flag=1;
+int r_start=0,r_end=m,c_start=0,c_end=n;
+while(r_start<r_end&&c_start<c_end)
+{
+	for(i=r_start;i<r_end;i++)
+	{
+		if(a[i][c_start]!=a[i][c_end])
+		{
+			hor_flag=0;
+			break;
+		}
+	}
+}
+if(hor_flag)
+{
+	cout<<"hor symmetrical"<<endl;
+}
+else
+{
+	cout<<"not hor symmetrical"<<endl;
+}
+int ver_flag=1;
+while(r_start<r_end&&c_start<c_end)
+{
+	for(i=c_start;i<c_end;i++)
+	{
+		if(a[r_start][i]!=a[r_end][i])
+		{
+			hor_flag=0;
+			break;
+		}
+	}
+}
+if(ver_flag)
+{
+	cout<<"ver symmetrical"<<endl;
+}
+else
+{
+	cout<<"not ver symmetrical"<<endl;
+}
+}
+
 kanade()
 
 
