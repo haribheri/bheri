@@ -267,10 +267,18 @@ else
 	cout<<"not ver symmetrical"<<endl;
 }
 }
+
+MatRot:
 int find_idx=0;
 for(i=0,find_idx=0;find_idx<arr.length;find_idx++,i++)
 {
-	if(arr[i]==)
+	if(arr[i]==b[find_idx])
+		break;
+}
+
+match(a[],i,b[],j)
+{
+for(i=0;i<)
 }
 
 
