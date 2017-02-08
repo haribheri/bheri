@@ -37,6 +37,7 @@ struct TrieNode *getNode(void)
         for (i = 0; i < ALPHABET_SIZE; i++)
             pNode->children[i] = NULL;
     }
+    
  
     return pNode;
 }
