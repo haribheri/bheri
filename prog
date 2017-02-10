@@ -1275,30 +1275,6 @@ int main()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Class  Node
 {
 Int data,value;
@@ -1337,11 +1313,6 @@ int max=0;
 while()
 }
 
-
-
-
-
-
 int Height_with_out_rec(Node root)
 {
 Queue<int> q;
@@ -1368,7 +1339,6 @@ q.push(temp.right);
 }
 }
 
-
 Void Disply_with_stack(Node root)
 {
 Stack<Node> s;
@@ -1385,9 +1355,6 @@ S.O.P(temp.data);
 while(temp)
 }
 }
-
-
-
 
 */
 
@@ -1568,17 +1535,6 @@ public class Tree
     }
    
 }
-
-
-
-
-
-
-
-
-
-
-
 
 package avltree;
 
