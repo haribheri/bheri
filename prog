@@ -269,6 +269,27 @@ else
 }
 }
 
+public void permut(char * str, int s, int e)
+{
+char temp;
+if(s==e)
+printf("%s",*str);
+for(i=s;i<e;i++)
+{
+
+temp=str[s];
+str[s]=str[i];
+str[i]=temp;
+
+permut(str,s+i,e);
+
+//backtracking
+temp=str[s];
+str[s]=str[i];
+str[i]=temp;
+}
+}
+
 MatRot:
 int find_idx=0;
 for(i=0,find_idx=0;find_idx<arr.length;find_idx++,i++)
@@ -2312,5 +2333,3 @@ cout<<"list is not palindrome "<<endl;
 }
 return 0;
 }
-
-
