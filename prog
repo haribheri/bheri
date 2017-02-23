@@ -1956,6 +1956,32 @@ void breadthFirstSearch(struct Node * adjList[], int vertices, int parent[], int
     }
 }
 
+
+void fun_get_Ansc(node * root,node *cur)
+{
+node * walker;
+stack<node *>s
+
+walker=root;
+while(walker!=cur)
+{
+	if(cur->data<walker->data)
+	{
+		s.push(walker);
+		walker=walker->left;
+	}
+	if(cur->data>walker->data)
+	{
+		s.push(walker);
+		walker=walker->right;
+	}
+}
+while(!s.isEmpty())
+{
+cout<<s.top()<<"\t";
+s.pop();
+}
+}
 // Replaces the value of an edge (u -->) v to (u --> v')
 // Traverses the entire list of adjacencyList[u] => O(|E|) operation
 // Here, "v" is stored as "oldVertex" and "v'" is stored as "newVertex"
