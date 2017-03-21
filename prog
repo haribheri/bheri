@@ -432,7 +432,54 @@ void Graph::BFS(int start,int n)
         val1=q.front();
         temp=a[val1];
         while(temp)
-        {
+        {#include<iostream>
+//#define BHERI -1
+using namespace std;
+int r_chk[]={0,0,-1,0,1};
+int c_chk[]={0,-1,0,1,0};
+int subfun(int a[4][3],int i, int j,int n)
+{
+int new_i=0,new_j=0,cnt=0,walk;
+if(n==1)
+return 1;
+for(walk=0;walk<5;walk++)
+{
+new_i=i+r_chk[walk];
+new_j=j+c_chk[walk];
+if(new_i>=0&&new_i<4&&new_j>=0&&new_j<=3&&a[new_i][new_j]!=-1)
+{
+cnt+=subfun(a,new_i,new_j,n-1);
+}
+}
+return cnt;
+}
+int fun(int a[4][3],int n)
+{
+if(n==0)
+return 0;
+if(n==1)
+return 10;
+int i,j,cnt2=0;
+for(i=0;i<4;i++)
+{
+for(j=0;j<3;j++)
+{
+if(a[i][j]!=-1)
+{
+cnt2+=subfun(a,i,j,n);
+}
+}
+}
+return cnt2;
+}
+int main()
+{
+int a[4][3]={1,2,3,4,5,6,7,8,9,-1,0,-1},n;
+cin>>n;
+int cnt1=fun(a,n);
+cout<<"final val is \t"<<cnt1<<endl;
+return 0;
+
             val2=temp->data;
             if(color[val2]==WHITE)
             {
@@ -2359,3 +2406,56 @@ cout<<"list is not palindrome "<<endl;
 }
 return 0;
 }
+
+
+Mobile code
+/*
+#include<iostream>
+//#define BHERI -1
+using namespace std;
+int r_chk[]={0,0,-1,0,1};
+int c_chk[]={0,-1,0,1,0};
+int subfun(int a[4][3],int i, int j,int n)
+{
+int new_i=0,new_j=0,cnt=0,walk;
+if(n==1)
+return 1;
+for(walk=0;walk<5;walk++)
+{
+new_i=i+r_chk[walk];
+new_j=j+c_chk[walk];
+if(new_i>=0&&new_i<4&&new_j>=0&&new_j<=3&&a[new_i][new_j]!=-1)
+{
+cnt+=subfun(a,new_i,new_j,n-1);
+}
+}
+return cnt;
+}
+int fun(int a[4][3],int n)
+{
+if(n==0)
+return 0;
+if(n==1)
+return 10;
+int i,j,cnt2=0;
+for(i=0;i<4;i++)
+{
+for(j=0;j<3;j++)
+{
+if(a[i][j]!=-1)
+{
+cnt2+=subfun(a,i,j,n);
+}
+}
+}
+return cnt2;
+}
+int main()
+{
+int a[4][3]={1,2,3,4,5,6,7,8,9,-1,0,-1},n;
+cin>>n;
+int cnt1=fun(a,n);
+cout<<"final val is \t"<<cnt1<<endl;
+return 0;
+
+*/
