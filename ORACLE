@@ -90,3 +90,38 @@ end;
 variable r_id number;
 
 exec add_emp(3,'emp','1-JAN-17',1000,:r_id);
+------------------------------------------------------------
+create or replace procedure ex_cur(n in number, c out sys_refcursor)
+AS
+begin
+open c for
+select * from emp where id<=n;
+end;
+
+
+set serveroutput on;
+
+DECLARE
+  c SYS_REFCURSOR;
+  e emp%ROWTYPE;
+BEGIN
+
+ ex_cur(4,c);
+
+  LOOP
+
+
+	FETCH c INTO e;
+
+        --exit if no more records
+        EXIT WHEN c%NOTFOUND;
+
+
+        dbms_output.put_line(e.id);
+
+  END LOOP;
+
+  CLOSE c;
+
+END;
+------------------------------------------------------
