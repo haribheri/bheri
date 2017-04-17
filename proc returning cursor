@@ -1,0 +1,29 @@
+create or replace procedure ex_cur(n in number, c out sys_refcursor)
+AS
+begin
+open c for
+select * from emp where id<=n;
+end;
+
+
+===============================================================================
+
+set SERVEROUTPUT ON
+declare
+n number:=10;
+cur sys_refcursor;
+nid emp.id%TYPE;
+nename EMP.ENAME%TYPE;
+nj_date EMP.J_DATE%type;
+nsalary EMP.SALARY%type;
+begin
+ex_cur(n,cur);
+--open cur;
+loop
+fetch cur into nid,nename,nj_date,nsalary;
+exit when cur%notfound;
+DBMS_OUTPUT.PUT_LINE('id is-> '||nid||' name is->  '||nename);
+end loop;
+close cur;
+end;
+
