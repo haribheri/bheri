@@ -1,0 +1,15 @@
+set long 200000 
+SET PAGES 1
+SET lines 131
+
+
+select dbms_metadata.get_ddl('OBJECT TYPE','OBJET NAME','USER') from dual;
+select dbms_metadata.get_ddl('MATERIALIZED_VIEW','MVW_EMP','BHERI') from dual;
+
+
+
+GRANT CREATE SYNONYM, CREATE VIEW, CREATE DATABASE LINK,
+     CREATE PUBLIC SYNONYM, DROP PUBLIC SYNONYM TO bheri;
+
+
+select dbms_metadata.get_ddl('SYNONYM','EMP_NEW','BHERI') from dual;
