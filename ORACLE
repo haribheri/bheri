@@ -140,3 +140,13 @@ create or replace procedure sam
  end;
  
  --------------------------------------------------
+ 
+ 
+  declare
+          l_clob clob := '12345';
+    begin
+          dbms_lob.writeappend( l_clob, 11, 'ABCDEFGHIJK' );
+          dbms_output.put_line( l_clob );
+    end;
+    
+    
