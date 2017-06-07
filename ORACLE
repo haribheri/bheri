@@ -148,5 +148,22 @@ create or replace procedure sam
           dbms_lob.writeappend( l_clob, 11, 'ABCDEFGHIJK' );
           dbms_output.put_line( l_clob );
     end;
-    
-    
+  --------------------------------------------------------------
+   DECLARE 
+l_clob CLOB; 
+l_text varchar2 (50) := ' UNION SELECT * from emp where id<6'; 
+BEGIN 
+DBMS_LOB.createtemporary (l_clob, TRUE); 
+DBMS_LOB.OPEN (l_clob, DBMS_LOB.lob_readwrite); 
+dbms_lob.write (l_clob, length('SELECT * from emp where id=2'), 1, 'SELECT * from emp where id=3'); 
+
+FOR i IN 1 .. 10 
+LOOP 
+DBMS_LOB.writeappend (l_clob,length(l_text), l_text); 
+dbms_output.put_line( l_clob );
+END LOOP; 
+     
+DBMS_LOB.CLOSE (l_clob); 
+DBMS_LOB.freetemporary (l_clob); 
+END; 
+ --------------------------------------------------------------------------------------------------
