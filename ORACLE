@@ -125,3 +125,18 @@ BEGIN
 
 END;
 ------------------------------------------------------
+
+
+create or replace procedure sam
+ as
+ temp varchar2(4000);
+ begin
+ temp:='drop table new_course';
+ execute IMMEDIATE temp;
+ 
+ execute immediate 'create table new_course as
+ select * from course';
+ dbms_output.put_line('elcome to ddl procedure');
+ end;
+ 
+ --------------------------------------------------
