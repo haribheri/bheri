@@ -25,6 +25,29 @@ WHEN no_data_found THEN
       dbms_output.put_line('No such student!');
 when others then
 NULL;
-
-
 end;
+
+
+
+
+Trigger Order:
+
+CREATE OR REPLACE TRIGGER trigger_2
+BEFORE INSERT ON tbl_1
+FOR EACH ROW
+BEGIN
+  DBMS_OUTPUT.put_line('trigger 2 - Executed');
+END;
+
+CREATE OR REPLACE TRIGGER trigger_1
+BEFORE INSERT ON tbl_1
+FOR EACH ROW
+FOLLOWS trigger_2
+BEGIN
+  DBMS_OUTPUT.put_line('trigger 1 - Executed');
+END;
+
+INSERT INTO tbl_1 VALUES (1, 'ONE');
+
+trigger 2 - Executed
+trigger 1 - Executed
