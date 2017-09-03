@@ -1,0 +1,16 @@
+
+ BEGIN
+      DBMS_SCHEDULER.CREATE_JOB
+      (
+      job_name            => 'job_name',
+      job_type            => 'STORED_PROCEDURE', --'PLSQL_BLOCK',
+      job_action          => 'procedure_name',
+      number_of_arguments => 0,
+      start_date          => SYSTIMESTAMP,
+       repeat_interval => 'FREQ=MINUTELY;INTERVAL=30',
+     end_date            => NULL,
+     enabled             => TRUE,
+     auto_drop           => FALSE,
+     comments            => 'This job sends daily report of jobs'
+     );
+  END;
