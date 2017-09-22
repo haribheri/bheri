@@ -160,12 +160,12 @@ void morrisinorder(struct node* root)
             {
                 pred=pred->right;
             }
-            if(pred->right==NULL)
+            if(pred->right==NULL) 
             {
                 pred->right=current;
                 current=current->left;
             }
-            else
+            else //pred is pointing to cur node
             {
                 pred->right=NULL;
                 cout<<"value is "<<pred->data<<endl;
@@ -269,23 +269,23 @@ else
 }
 }
 
-public void permut(char * str, int s, int e)
+public void permut(char * str, int strt, int end)
 {
 char temp;
-if(s==e)
+if(strt==end)
 printf("%s",*str);
-for(i=s;i<e;i++)
+for(i=strt;i<end;i++)
 {
 
-temp=str[s];
-str[s]=str[i];
+temp=str[strt];
+str[strt]=str[i];
 str[i]=temp;
 
 permut(str,s+i,e);
 
 //backtracking
-temp=str[s];
-str[s]=str[i];
+temp=str[strt];
+str[strt]=str[i];
 str[i]=temp;
 }
 }
