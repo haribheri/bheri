@@ -49,6 +49,20 @@ DBMS_SCHEDULER.CREATE_JOB (
   END;
    -------------------------------------
   exec DBMS_SCHEDULER.RUN_JOB('MVIEW_REFRESH',TRUE);
+     
+   
+   Reschedule Job
+   -------------------- 
+    begin
+    dbms_scheduler.set_attribute
+    (
+        name      =>  'MVIEW_REFRESH',
+        attribute =>  'REPEAT_INTERVAL',
+        value     =>  'FREQ=MINUTELY;INTERVAL=20'
+    );
+  end;
+  
+  ------------------------------------------
    
    
 EXEC DBMS_SCHEDULER.drop_job('MVW_EMP_REFRESH');
