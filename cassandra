@@ -1,1 +1,38 @@
 
+bheri-2:
+	bheri-1	10.0.2.255
+	bheri-2	10.0.2.15
+
+
+============================
+node-1:  10.0.2.255
+node-2:  10.0.2.15
+
+
+iptables -A INPUT -p tcp --dport 00 -j ACCEPT
+
+node-1:  192.168.1.1  
+
+sudo iptables -A INPUT -p tcp -s 10.0.2.15  -m multiport --dports 7000,9042 -m state --state NEW,ESTABLISHED -j ACCEPT
+sudo iptables -L
+
+node-2:  192.168.1.2
+sudo iptables -A INPUT -p tcp -s 10.0.2.255   -m multiport --dports 7000,9042 -m state --state NEW,ESTABLISHED -j ACCEPT
+sudo iptables -L
+
+
+cluster name should be same in all th nodes.  
+
+name=Test Cluster
+
+seed nodes address should present on all nodes.
+seeds:10.0.2.15
+
+rpc_address is the ip address of the corresponding node
+192.168.1.1  for node -1
+
+auto_bootsrap:false  for seed nodes
+
+true for non seed nodes
+
+first start seed nodes. and crete keyspaces on all.x
